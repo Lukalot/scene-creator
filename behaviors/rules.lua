@@ -1127,9 +1127,11 @@ function RulesBehavior:changeRules(actorId, component, changeRulesFunc, descript
       },
       function()
          self:sendSetProperties(actorId, "rules", newRules)
+         self.game:updateBlueprintFromActor(actorId)
       end,
       function()
          self:sendSetProperties(actorId, "rules", oldRules)
+         self.game:updateBlueprintFromActor(actorId)
       end
    )
 end
